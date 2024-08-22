@@ -3,5 +3,5 @@ export class LivroDto {
     titulo!: string;
     autor!: string;
     genero!: number;
-    ano!: string;
+    ano!: number;
 }
