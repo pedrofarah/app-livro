@@ -1,45 +1,57 @@
 #Pedro Farah (14) 99103.0770
 
-Sistema desenvolvido utilizando o framework **.NET 8** e **Visual Studio 2022**
+Sistema desenvolvido utilizando o framework **.NET 8** e **Visual Studio 2022** e ** Angular 18 **
 
 Banco de dados **EF Core In-Memory Database**
 
 ** Projeto API **
 
+- livro.api.persistence -
 
+Responsável pela persistência dos dados. 
+Utilizando o padrões Unit of Work e Repository.
+
+- livro.api.domain -
+
+Responsável pela validação das regras de negócio.
+
+- livro.api.host -
+
+Projeto principal, responsável pela execução da api.
 
 ** Passos para executar o projeto da API **
 
-1 - Abra 
+1 - Vá até o diretório app-livro\livro.api
 
-1 - Abra a solution PedroFarah.Web.Api
+- Via Visual Studio
 
-2 - Selecione o projeto PedroFarah.Web.Api.Host como projeto de inicialização
+1 - Abra a solution livro.api.sln
 
-3 - Execute o projeto
+2 - Selecione o projeto livro.api.host como projeto de inicialização
+
+3 - Execute o projeto.
+
+- Via DotNet CLI
+
+1 - Vá até o diretório \livro.api.host
+
+2 - Execute o comando dotnet run.
+
+*** Por padrão a API inciará nas portas 5000 (http) ou 5001 (https).
 
 Utilize a gui do Swagger para visualizar os endpoints: /swagger
 
-Passos para operar o sistema:
+** Projeto Front-end **
 
-1 - Inicialmente foram adicionados dois usuários via seed do Ef Core. São eles:
+Desenvolvido com a versão do Angular 18.2.0
 
-{
-  "email": "usuario1@apitarefas.net",
-  "senha": "usr@1"
-}
+** Passos para executar o projeto do Front-end **
 
-{
-  "email": "usuario2@apitarefas.net",
-  "senha": "usr@2"
-}
+1 - Vá até o diretório livro.client
 
-2 - Execute o endpoint /Login passando um dos usuários acima como parâmetro para que seja retornado o token JWT.
+2 - Digite "npm install" para instalar os pacotes do node.
 
-3 - Utilize o token retornado no passo anterior para realizar a autenticação. Campo "Authorization token" na tela de autenticação do swagger (Botão Authorize). 
+3 - Digite ng serve para iniciar o projeto.
 
-4 - Realizando a autenticação, os endpoints /tarefa e /usuario estarão liberados.
-
-Obs: Não há necessidade de informar o Id do usuário nos payloads dos endpoints /tarefa. Esta informação é passada internamente via token JWT.
 
 Obrigado!
