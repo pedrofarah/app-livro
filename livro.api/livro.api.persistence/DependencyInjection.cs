@@ -12,7 +12,7 @@ namespace livro.api.persistence
         public static IServiceCollection AddIdentityPersistence(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDBContext>(options =>
-                options.UseInMemoryDatabase(Guid.NewGuid().ToString()),
+                options.UseInMemoryDatabase("DBLivroApi"),
                 ServiceLifetime.Scoped,
                 ServiceLifetime.Scoped
             );

@@ -1,5 +1,6 @@
 using livro.api.persistence;
 using livro.api.domain;
+using livro.api.domain.ErrorHandling;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,9 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddIdentityPersistence(builder.Configuration);
 
-builder.Services.AddAutoMapperConfiguration();
-
-builder.Services.AddFluentValidationConfiguration();
+builder.Services.AddDomainConfiguration(builder.Configuration);
 
 builder.Services.AddControllers();
 
@@ -30,6 +29,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseMiddleware(typeof(ErrorHandlingMiddleware));
+
 app.MapControllers();
+
+app.UseCors(opcoes => opcoes.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 app.Run();

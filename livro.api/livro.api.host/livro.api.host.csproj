@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\livro.api.domain\livro.api.domain.csproj" />
     <ProjectReference Include="..\livro.api.persistence\livro.api.persistence.csproj" />
   </ItemGroup>

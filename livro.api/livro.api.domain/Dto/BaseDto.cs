@@ -1,7 +1,6 @@
 ﻿namespace livro.api.domain.Dto
 {
-    public class BaseDto<T> where T : struct
+    public class BaseDto
     {
-        public T? Id { get; set; }
     }
 }

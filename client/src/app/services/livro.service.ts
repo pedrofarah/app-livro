@@ -1,19 +1,17 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { LivroDto } from '../Dto/livro.dto';
-
-@Injectable({
-  providedIn: 'root'
-})
+import { LivroDto } from '../dto/livro.dto';
 
 
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
   }),
 };
 
+@Injectable()
 export class LivroService {
 
   url = 'https://localhost:5001/api/livro';
@@ -40,4 +38,11 @@ export class LivroService {
   Delete(id: string): Observable<any> {
     return this.http.delete<string>(`${this.url}/${id}`, httpOptions);
   }
+  
 }
+
+const injector = Injector.create({
+  providers: [
+    {provide: LivroService, deps: []},
+  ],
+});

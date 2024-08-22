@@ -8,6 +8,10 @@ namespace livro.api.domain.Mappings
     {
         public LivroProfile()
         {
+            CreateMap<LivroEntity, LivroCreateDto>().ReverseMap();
+            CreateMap<LivroEntity, LivroUpdateDto>().ReverseMap();
+            CreateMap<LivroEntity, LivroDeleteDto>().ReverseMap();
+            CreateMap<LivroEntity, LivroQueryDto>().ReverseMap();
             CreateMap<LivroEntity, LivroDto>().ReverseMap();
         }
     }

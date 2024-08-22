@@ -1,10 +1,10 @@
 ﻿namespace livro.api.domain.Dto
 {
-    public class LivroDto : BaseDto<Guid>
+    public class LivroDto : BaseCrudDto<Guid>
     {
-        public required string Titulo { get; set; }
-        public required string Autor { get; set; }
-        public required string Genero { get; set; }
-        public int Ano { get; set; }
+        public string? Titulo { get; set; }
+        public string? Autor { get; set; }
+        public string? Genero { get; set; }
+        public int? Ano { get; set; }
     }
 }
